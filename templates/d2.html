@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ML API</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007bff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Diabetes Prediction</h1>
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <label for="Pregnancies">Pregnancies</label>
+            <input type="text" name="Pregnancies" required="required" />
+
+            <label for="Glucose">Glucose</label>
+            <input type="text" name="Glucose" required="required" />
+
+            <label for="BloodPressure">Blood Pressure</label>
+            <input type="text" name="BloodPressure" required="required" />
+
+            <label for="SkinThickness">Skin Thickness</label>
+            <input type="text" name="SkinThickness" required="required" />
+
+            <label for="Insulin">Insulin</label>
+            <input type="text" name="Insulin" required="required" />
+
+            <label for="BMI">BMI</label>
+            <input type="text" name="BMI" required="required" />
+
+            <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function</label>
+            <input type="text" name="DiabetesPedigreeFunction" required="required" />
+
+            <label for="Age">Age</label>
+            <input type="text" name="Age" required="required" />
+
+            <button type="submit">Predict</button>
+        </form>
+
+        <div class="result">
+            {{result}}
+        </div>
+    </div>
+</body>
+
+</html>
