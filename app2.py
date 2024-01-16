@@ -1,4 +1,4 @@
-
+#80% accurcay we used LogisticRegression
 from flask import Flask, request,app,render_template
 from flask import Response 
 import pickle
